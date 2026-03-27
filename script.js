@@ -5,8 +5,9 @@
 })();
 
 // 2. DATA OBJECT FOR THE 5 CARDS
+// 2. DATA OBJECT FOR THE 5 CARDS (Updated keys to match HTML data-title)
 const roomEmailContent = {
-    "G1 (Ground Floor)": `Room Name: G1 (Ground Floor)
+    "Private Office": `Room Name: G1 (Ground Floor)
 Facilities Available:
 • 1 Fan
 • Air Conditioning (AC)
@@ -15,7 +16,7 @@ Facilities Available:
 Board: Whiteboard
 This space is suitable for team work, meetings, or small office setups.`,
 
-    "G2 (Ground Floor Premium)": `Room Name: G2 (Ground Floor Premium)
+    "Meeting Room": `Room Name: G2 (Ground Floor Premium)
 Facilities Available:
 • 2 Air Conditioners
 • 8 Tables
@@ -24,7 +25,7 @@ Facilities Available:
 Board: Glass Board
 This space is ideal for growing teams and premium office setups.`,
 
-    "F1 (First Floor)": `Room Name: F1 (First Floor)
+    "Hot Desk": `Room Name: F1 (First Floor)
 Facilities Available:
 • 1 Air Conditioner
 • 4 Tables
@@ -33,7 +34,7 @@ Facilities Available:
 Board: Whiteboard
 This space is suitable for startups and small teams.`,
 
-    "F2 (Conference Room)": `Room Name: F2 (Conference Room)
+    "Dedicated Desk": `Room Name: F2 (Conference Room)
 Facilities Available:
 • Air Conditioning (AC)
 • 10 Seater Conference Table
@@ -42,7 +43,7 @@ Facilities Available:
 Board: Whiteboard
 This space is perfect for meetings, presentations, and client discussions.`,
 
-    "F3 (Private Cabin)": `Room Name: F3 (Private Cabin)
+    "Virtual Office": `Room Name: F3 (Private Cabin)
 Facilities Available:
 • Air Conditioning (AC)
 • 2 Tables
@@ -96,42 +97,49 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// 6. EMAIL SENDING LOGIC
+// 6. EMAIL SENDING LOGIC (With Loading UI)
 document.getElementById('sendRequestBtn').addEventListener('click', function () {
-    const emailValue = visitorEmailInput.value;
+    const emailValue = visitorEmailInput.value.trim();
     const selectedRoom = modalTitle.innerText;
     const btn = this;
 
-    if (emailValue === "" || !emailValue.includes('@')) {
+    // Basic Validation
+    if (!emailValue || !emailValue.includes('@')) {
+        visitorEmailInput.style.borderColor = "red";
         alert("Please enter a valid email address!");
         return;
     }
 
-    btn.innerText = "Sending...";
+    // UI Feedback: Loading state
+    const originalText = btn.innerText;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.style.opacity = "0.7";
     btn.disabled = true;
 
     const specificDetails = roomEmailContent[selectedRoom] || "Details for this room are coming soon.";
 
-    // These keys match your dashboard: {{user_email}} and {{room_details}}
     const templateParams = {
         user_email: emailValue,
         room_details: specificDetails
     };
 
-    // IDs from your latest Dashboard screenshots
     const myServiceID = 'service_60xupfj';
-    const myTemplateID = 'template_a7gdfym'; // Updated to match your current active template ID
+    const myTemplateID = 'template_a7gdfym';
 
     emailjs.send(myServiceID, myTemplateID, templateParams)
         .then(() => {
             requestForm.style.display = 'none';
             successMsg.style.display = 'block';
+        })
+        .catch((error) => {
+            alert("Failed to send: " + (error.text || "Check your console for details"));
+            console.error("EmailJS Error:", error);
+        })
+        .finally(() => {
+            // Reset button state
             btn.disabled = false;
-            btn.innerText = "Request Details";
-        }, (error) => {
-            alert("Failed to send: " + (error.text || JSON.stringify(error)));
-            btn.disabled = false;
-            btn.innerText = "Request Details";
+            btn.innerHTML = originalText;
+            btn.style.opacity = "1";
         });
 });
 
