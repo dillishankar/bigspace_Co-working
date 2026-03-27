@@ -6,7 +6,7 @@
 
 // 2. DATA OBJECT FOR THE 5 CARDS
 const roomEmailContent = {
-    "Private Office": `Room Name: G1 (Ground Floor)
+    "G1 (Ground Floor)": `Room Name: G1 (Ground Floor)
 Facilities Available:
 • 1 Fan
 • Air Conditioning (AC)
@@ -15,7 +15,7 @@ Facilities Available:
 Board: Whiteboard
 This space is suitable for team work, meetings, or small office setups.`,
 
-    "Meeting Room": `Room Name: G2 (Ground Floor Premium)
+    "G2 (Ground Floor Premium)": `Room Name: G2 (Ground Floor Premium)
 Facilities Available:
 • 2 Air Conditioners
 • 8 Tables
@@ -24,7 +24,7 @@ Facilities Available:
 Board: Glass Board
 This space is ideal for growing teams and premium office setups.`,
 
-    "Hot Desk": `Room Name: F1 (First Floor)
+    "F1 (First Floor)": `Room Name: F1 (First Floor)
 Facilities Available:
 • 1 Air Conditioner
 • 4 Tables
@@ -33,7 +33,7 @@ Facilities Available:
 Board: Whiteboard
 This space is suitable for startups and small teams.`,
 
-    "Dedicated Desk": `Room Name: F2 (Conference Room)
+    "F2 (Conference Room)": `Room Name: F2 (Conference Room)
 Facilities Available:
 • Air Conditioning (AC)
 • 10 Seater Conference Table
@@ -42,7 +42,7 @@ Facilities Available:
 Board: Whiteboard
 This space is perfect for meetings, presentations, and client discussions.`,
 
-    "Virtual Office": `Room Name: F3 (Private Cabin)
+    "F3 (Private Cabin)": `Room Name: F3 (Private Cabin)
 Facilities Available:
 • Air Conditioning (AC)
 • 2 Tables
