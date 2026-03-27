@@ -1,0 +1,527 @@
+:root {
+    --primary-green: #5cb85c;
+    --dark-blue: #1a2a3a;
+    --bg-light: #f4f7f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: var(--bg-light);
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+/* --- Navbar Alignment Fix --- */
+header {
+    background: var(--dark-blue);
+    padding: 10px 0;
+    /* Reduced padding for a sleeker profile */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Vertically centers all items */
+    height: 60px;
+    /* Consistent height */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    /* Takes up space on the left */
+}
+
+.logo img {
+    height: 45px;
+    /* Adjust based on your logo image size */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+    /* Keeps links centered between logo and CTA */
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: var(--primary-pink);
+    /* If using the pink theme */
+}
+
+.separator {
+    color: #444;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.nav-cta-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Pushes CTA to the far right */
+}
+
+.nav-cta {
+    background: var(--primary-green);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    /* Professional squared edges */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-cta:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 15px rgba(92, 184, 92, 0.3);
+}
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        /* Hide links on small tablets/mobile */
+    }
+}
+
+
+/* menuuuuuuu*/
+
+/* --- Mobile Menu Styles --- */
+
+/* Hide menu icon by default on desktop */
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .menu-icon {
+        display: block;
+        z-index: 2001;
+        /* Stays above the overlay */
+    }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(26, 42, 58, 0.98);
+        /* Solid dark blue with slight transparency */
+        z-index: 2000;
+        gap: 40px;
+    }
+
+    /* When the menu is open */
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        /* Larger links for easy tapping */
+        color: white;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    /* Keep the logo and CTA visible but under the icon */
+    .logo,
+    .nav-cta {
+        z-index: 1001;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section - ALIGNMENT FIX HERE */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(26, 42, 58, 0.75), rgba(26, 42, 58, 0.75)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    /* Stacks items vertically */
+    align-items: center;
+    /* Centers items horizontally */
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.hero-content p {
+    color: #eee;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-green);
+    color: white;
+    padding: 14px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #4cae4c;
+    transform: scale(1.05);
+}
+
+/* About Section */
+
+/* Hero Button Alignment Fix */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    /* Stacks H1, P, and Button */
+    align-items: center;
+    /* Centers them horizontally */
+    justify-content: center;
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Forces the button to the exact center */
+    margin-top: 20px;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    color: #1a2a3a;
+    margin-bottom: 50px;
+    text-align: left;
+    /* Aligns title as seen in your layout */
+    font-weight: 700;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    gap: 60px;
+    align-items: start;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Mobile Responsiveness for About Section */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        /* Stacks image and text on mobile */
+        gap: 30px;
+    }
+
+    .about-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+/* Spaces Section */
+.spaces {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dark-blue);
+}
+
+.space-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.space-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.space-card:hover {
+    transform: translateY(-5px);
+}
+
+.space-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card-footer {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.arrow-btn {
+    background: #eef9ee;
+    color: var(--primary-green);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add this to your style.css if you haven't yet */
+.hidden-card {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.center-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-secondary {
+    background: var(--dark-blue);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 25px 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+}
+
+.icon-circle {
+    background: #eef9ee;
+    color: var(--primary-green);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.contact-text small {
+    color: #888;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.contact-text p {
+    font-weight: bold;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 15px;
+    overflow: hidden;
+    animation: popUp 0.3s ease;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#modalImg {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-primary-modal {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-close {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background: var(--dark-blue);
+    color: #777;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #222;
+    font-size: 14px;
+}

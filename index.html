@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigspace | Elevate Your Work Life</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar container">
+            <div class="logo">
+                <img src="ee6fabb3-d05f-4315-8c5f-e9180c3859ff-removebg-preview-1.webp" alt="Bigspace Logo">
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li class="separator">|</li>
+                <li><a href="#about">About</a></li>
+                <li class="separator">|</li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta-container">
+                <a href="#rooms" class="nav-cta">Explore Spaces</a>
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Work Life</h1>
+            <p>Flexible workspaces designed for innovation, collaboration, and growth.</p>
+            <div class="hero-btn-container">
+                <a href="#rooms" class="btn-primary">Explore Spaces</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="about-title">About Bigspace</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800" alt="About Bigspace">
+                </div>
+                <div class="about-text">
+                    <p>Bigspace Coworking is a professionally managed workspace provider designed for businesses of
+                        every size.</p>
+                    <p>Our spaces are equipped with high-speed internet, modern furniture, and on-site support staff.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="spaces container">
+        <h2 class="section-title">Our Spaces</h2>
+        <div class="space-grid" id="spaceGrid">
+            <div class="space-card" data-title="Private Office"
+                data-img="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600"
+                data-desc="Fully furnished private offices for teams of 1-10.">
+                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400" alt="Private Office">
+                <div class="card-footer"><span>G1 - Ground Floor</span>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+            <div class="space-card" data-title="Meeting Room"
+                data-img="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=600"
+                data-desc="Professional meeting rooms with AV technology.">
+                <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=400" alt="Meeting Room">
+                <div class="card-footer"><span>G2 - Ground Floor Premium</span>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+            <div class="space-card" data-title="Hot Desk"
+                data-img="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=600"
+                data-desc="Flexible desk space in a vibrant open-plan area.">
+                <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=400" alt="Hot Desk">
+                <div class="card-footer"><span>F1 - First Floor</span>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+            <div class="space-card hidden-card" data-title="Dedicated Desk"
+                data-img="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600"
+                data-desc="Your own personal desk in a shared environment.">
+                <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=400" alt="Desk">
+                <div class="card-footer"><span>F2 - First Floor</span>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+            <div class="space-card hidden-card" data-title="Virtual Office"
+                data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600"
+                data-desc="Professional business address services.">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Virtual Office">
+                <div class="card-footer"><span>F3 - First Floor</span>
+                    <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="center-container">
+            <button id="showMoreBtn" class="btn-secondary">Show More</button>
+        </div>
+    </section>
+
+    <div id="roomModal" class="modal-overlay">
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="">
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+
+                <div id="requestForm" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                    <p style="font-size: 0.9rem; margin-bottom: 10px; color: #666;">Enter your email for pricing:</p>
+                    <input type="email" id="visitorEmail" placeholder="yourname@email.com"
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 15px;">
+                    <div class="modal-actions">
+                        <button id="sendRequestBtn" class="btn-primary-modal">Request Details</button>
+                        <button class="btn-close close-modal">Close</button>
+                    </div>
+                </div>
+
+                <div id="successMessage" style="display:none; text-align: center; padding: 20px;">
+                    <div style="color: #5cb85c; font-size: 2rem;"><i class="fas fa-check-circle"></i></div>
+                    <h3 style="color: #1a2a3a;">Sent Successfully!</h3>
+                    <button class="btn-close close-modal" style="margin-top: 15px;">Close Window</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Bigspace Coworking. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
